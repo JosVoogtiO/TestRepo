@@ -7,22 +7,30 @@ jobs:
     name: Test my project 🧪
     runs-on: ubuntu-latest
     steps:
-      # Checkout
+      # Debug step to see the repository structure
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           lfs: true
+          
+      - name: List repository contents
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "Project folder contents:"
+          ls -la "Project ARiO" || echo "Project ARiO folder not found"
 
       # Cache
       - uses: actions/cache@v3
         with:
-          path: Project\ ARiO/LibraryLibrary
+          path: "Project ARiO/Library"
           key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
           restore-keys: |
             Library-
 
       # Test
       - name: Run tests
+        id: testRunner
         uses: game-ci/unity-test-runner@v4.3.1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -48,11 +56,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+          
+      - name: List repository contents
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "Project folder contents:"
+          ls -la "Project ARiO" || echo "Project ARiO folder not found"
 
       # Cache
       - uses: actions/cache@v3
         with:
-          path: Project\ ARiO/Library
+          path: "Project ARiO/Library"
           key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
           restore-keys: |
             Library-
