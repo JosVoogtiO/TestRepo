@@ -1,0 +1,50 @@
+# Site settings
+title: Project ARiO Docs
+description: Step-by-step guide to setting up a development environment for new developers
+url: "https://weareyou.github.io/project-ario"
+
+# Theme settings
+remote_theme: just-the-docs/just-the-docs
+
+# Navigation structure
+nav_order: 1
+has_children: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "View on GitHub":
+    - "//github.com/weareyou.github.io/project-ario"
+
+# Define navigation order for all pages
+defaults:
+  -
+    scope:
+      path: "" # Apply to all files
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "index.md"
+    values:
+      nav_order: 1
+  -
+    scope:
+      path: "new-project.md"
+    values:
+      nav_order: 2
+  -
+    scope:
+      path: "existing-project.md"
+    values:
+      nav_order: 3
+  -
+    scope:
+      path: "unity-guidelines.md"
+    values:
+      nav_order: 4
+  -
+    scope:
+      path: "testen.md"
+    values:
+      nav_order: 5
+
