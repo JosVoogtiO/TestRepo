@@ -16,8 +16,8 @@ jobs:
       # Cache
       - uses: actions/cache@v3
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: Project\ ARiO/LibraryLibrary
+          key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
           restore-keys: |
             Library-
 
@@ -33,11 +33,11 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           projectPath: "Project ARiO"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Test results
-          path: artifacts
+          path: ${{ steps.testRunner.outputs.artifactsPath }}
 
   build:
     name: Build my project ✨
@@ -52,8 +52,8 @@ jobs:
       # Cache
       - uses: actions/cache@v3
         with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          path: Project\ ARiO/Library
+          key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
           restore-keys: |
             Library-
 
@@ -68,9 +68,10 @@ jobs:
           targetPlatform: Android
           allowDirtyBuild: true
           projectPath: "Project ARiO"
+          unityVersion: 2022.3.60f1
 
       # Output
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Build
           path: build
