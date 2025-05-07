@@ -1,0 +1,12 @@
+---
+---
+
+// Import the theme's CSS
+@import "{{ site.theme }}";
+
+// General class for custom image sizes
+.custom-image {
+  width: 300px !important;
+  height: 500px !important;
+  object-fit: contain;
+}
