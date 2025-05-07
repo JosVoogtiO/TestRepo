@@ -11,6 +11,7 @@ Deze gids helpt u bij het correct gebruik van een projectstructuur in Unity, vol
 ## Inhoud
 - [Unity Structuur](#unity-structuur)
   - [Audio](#audio)
+  - [Editor](#editor)
   - [Materials](#materials)
   - [MetaXR](#metaxr)
   - [Oculus](#oculus)
@@ -41,6 +42,19 @@ Hieronder volgt een overzicht van de mappen in een goed gestructureerd Unity Pro
 ### Audio
 
 De Audio map bevat alle geluidsbestanden, waaronder muziek, geluidseffecten en spraakopnames. Deze bestanden vormen de auditieve laag van uw applicatie en kunnen worden afgespeeld tijdens specifieke gebeurtenissen of als achtergrondmuziek. De map kan verder worden onderverdeeld in submappen zoals Muziek, SFX en Spraak voor een betere organisatie.
+
+### Editor
+
+De Editor map bevat scripts en assets die alleen binnen de Unity Editor worden gebruikt en niet in de uiteindelijke build terechtkomen. Deze map is cruciaal voor het uitbreiden van de Unity Editor met aangepaste tools, inspectors en wizards die het ontwikkelingsproces verbeteren. 
+
+Inhoud van de Editor map kan omvatten:
+- Custom inspectors die de manier waarop componenten worden weergegeven in de Inspector aanpassen
+- Editor windows die nieuwe functionaliteit toevoegen aan de Unity interface
+- Editor scripts die automatisering bieden voor repetitieve taken
+- Asset processors die importinstellingen automatiseren
+
+Door editor-specifieke code in deze map te plaatsen, wordt deze automatisch uitgesloten van builds, wat de grootte en prestaties van de uiteindelijke applicatie verbetert.
+
 
 ### Materials
 
