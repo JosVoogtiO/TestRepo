@@ -3,6 +3,8 @@ title: Project ARiO Docs
 description: Step-by-step guide to setting up a development environment for new developers
 url: "https://josvoogtio.github.io/TestRepo/"
 baseurl: "/TestRepo"
+github_repo: "JosVoogtiO/TestRepo"
+github_branch: "main"  # Change this when switching branches
 
 # Theme settings
 remote_theme: just-the-docs/just-the-docs
