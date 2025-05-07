@@ -28,7 +28,7 @@ Het dashboard maakt het mogelijk om:
 Deze gestructureerde aanpak, met categorisering, toewijzing van zoekwoorden en informatielagen, zorgt voor een efficiënte workflow tussen contentcreatie en de uiteindelijke implementatie in de MR-omgeving van het project.
 
 
-![Dashboard Image](https://media.githubusercontent.com/media/JosVoogtiO/TestRepo/main/docs/assets/exhibit-item-dashboard.png)
+<img src="https://media.githubusercontent.com/media/JosVoogtiO/TestRepo/main/docs/assets/exhibit-item-dashboard.png" alt="Exhibit Dashboard" width="300" height="500">
 
 ## Item Holder
 
