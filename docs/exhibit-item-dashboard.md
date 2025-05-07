@@ -28,7 +28,7 @@ Het dashboard maakt het mogelijk om:
 Deze gestructureerde aanpak, met categorisering, toewijzing van zoekwoorden en informatielagen, zorgt voor een efficiënte workflow tussen contentcreatie en de uiteindelijke implementatie in de MR-omgeving van het project.
 
 
-<img src="{{ site.baseurl }}/assets/exhibit_item_dashboard.png" alt="Exhibit Dashboard" width="300" height="500">
+![Dashboard Image](/docs/assets/exhibit_item_dashboard.png)
 
 ## Item Holder
 
