@@ -1,0 +1,92 @@
+name: Actions 😎
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Test my project 🧪
+    runs-on: ubuntu-latest
+    steps:
+      # Debug step to see the repository structure
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          
+      - name: List repository contents
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "Project folder contents:"
+          ls -la "Project ARiO" || echo "Project ARiO folder not found"
+
+      # Cache
+      - uses: actions/cache@v3
+        with:
+          path: "Project ARiO/Library"
+          key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      # Test
+      - name: Run tests
+        id: testRunner
+        uses: game-ci/unity-test-runner@v4.3.1
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          unityVersion: 2022.3.60f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          projectPath: "Project ARiO"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Test results
+          path: ${{ steps.testRunner.outputs.artifactsPath }}
+
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          
+      - name: List repository contents
+        run: |
+          echo "Repository contents:"
+          ls -la
+          echo "Project folder contents:"
+          ls -la "Project ARiO" || echo "Project ARiO folder not found"
+
+      # Cache
+      - uses: actions/cache@v3
+        with:
+          path: "Project ARiO/Library"
+          key: Library-${{ hashFiles('Project ARiO/Assets/**', 'Project ARiO/Packages/**', 'Project ARiO/ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4.4.0
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          allowDirtyBuild: true
+          projectPath: "Project ARiO"
+          unityVersion: 2022.3.60f1
+
+      # Output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Build
+          path: build
