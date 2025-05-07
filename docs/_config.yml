@@ -1,3 +1,21 @@
+# Site settings
+title: Project ARiO Docs
+description: Step-by-step guide to setting up a development environment for new developers
+url: "https://josvoogtio.github.io/TestRepo/"
+
+# Theme settings
+remote_theme: just-the-docs/just-the-docs
+
+# Navigation structure
+nav_order: 1
+has_children: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "View on GitHub":
+    - "//github.com/weareyou.github.io/project-ario"
+
+# Define navigation order for all pages
 defaults:
   -
     scope:
